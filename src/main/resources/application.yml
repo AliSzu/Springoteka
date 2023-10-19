@@ -1,39 +1,21 @@
+server:
+  port: 8080
 
-  ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
-  spring:
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQL94Dialect
-          ddl-auto: update
-      show-sql: true
-    database:
-      driverClassName: org.postgresql.Driver
-    datasource:
-      platrform: postgres
-      url: jdbc:postgresql:{database}
-      username: {username}
-      password: { password }
 
-    security:
-      oauth2:
-        client:
-          registration:
-            google:
-              clientId: { clientId }
-              clientSecret: {clientSecret}
-              # Necessary for google to redirect call
-              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
-              scope:
-                - email
-                - profile
-  app:
-    auth:
-      tokenSecret: PRACOWNIAPROGRAMOWANIA
-      tokenExpirationMsec: 864000000
-    oauth2:
-      # After successfully authenticating with the OAuth2 Provider,
-      # we'll be generating an auth token for the user and sending the token to the
-      # redirectUri mentioned by the client in the /oauth2/authorize request.
-      authorizedRedirectUris:
-        - http://localhost:3000/oauth2/redirect
+spring:
+  application:
+    name: Springoteka
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+
+springdoc:
+  swagger-ui:
+    path: /api
