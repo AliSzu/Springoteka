@@ -1,5 +1,12 @@
+Pracownia\Projekt\Spring\DTO\PatchBookDTO.class
+Pracownia\Projekt\Spring\DTO\PostBookDTO.class
+Pracownia\Projekt\Spring\Exception\ResourceNotFoundException.class
+Pracownia\Projekt\Spring\Exception\ErrorMessage.class
+Pracownia\Projekt\Spring\Controllers\BookController.class
 Pracownia\Projekt\Spring\Services\BookService.class
 Pracownia\Projekt\Spring\SpringApp.class
 Pracownia\Projekt\Spring\Entities\Book.class
-Pracownia\Projekt\Spring\Controllers\BookController.class
+Pracownia\Projekt\Spring\Exception\ControllerExceptionHandler.class
+Pracownia\Projekt\Spring\Entities\Book$BookBuilder.class
 Pracownia\Projekt\Spring\Repositories\BookRepository.class
+Pracownia\Projekt\Spring\Mapper\BookMapper.class
