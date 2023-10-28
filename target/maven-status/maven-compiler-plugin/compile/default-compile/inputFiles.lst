@@ -12,6 +12,7 @@ C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\C
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Entities\Library.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Repositories\AuthorsRepository.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Exception\RestAuthenticationEntryPoint.java
+C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Exception\ControllerExceptionHandler.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Entities\Authors.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Services\AddressService.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Services\BookService.java
@@ -20,11 +21,12 @@ C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\R
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Entities\Person.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Controllers\IndexController.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Controllers\BookController.java
+C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Exception\ErrorMessage.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Repositories\AddressRepository.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Services\AddressServiceImpl.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Config\AppProperties.java
-C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Exception\BadRequestException.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Security\oauth2\OAuth2AuthenticationSuccessHandler.java
+C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Controllers\SwaggerController.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Services\UserService.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Exception\ResourceNotFoundException.java
 C:\Users\Genos\IdeaProjects\Springoteka\src\main\java\Pracownia\Projekt\Spring\Repositories\BookRepository.java
