@@ -19,8 +19,10 @@ public class Book {
     private Long id;
     @Column
     private String title;
-    @Column
-    private String author;
+
+    @ManyToOne
+    private Author author;
+
     @Column
     @CreationTimestamp
     private Date createdAt;

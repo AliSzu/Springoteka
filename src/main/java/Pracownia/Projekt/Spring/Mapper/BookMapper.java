@@ -10,7 +10,6 @@ public class BookMapper {
     public Book mapDtoToEntity(PostBookDTO postBookDTO) {
         Book book = new Book();
         book.setTitle(postBookDTO.getTitle());
-        book.setAuthor(postBookDTO.getAuthor());
         return book;
     }
 }

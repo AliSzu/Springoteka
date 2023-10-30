@@ -12,8 +12,4 @@ public class PostBookDTO {
     @Size(min = 2, message = "title name should have at least 2 characters")
     @NotBlank
     private String title;
-
-    @Size(min = 2, message = "author name should have at least 2 characters")
-    @NotBlank
-    private String author;
 }
