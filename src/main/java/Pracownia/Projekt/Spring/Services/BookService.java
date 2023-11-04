@@ -1,8 +1,15 @@
 package Pracownia.Projekt.Spring.Services;
 
+import Pracownia.Projekt.Spring.DTO.BookDto;
 import Pracownia.Projekt.Spring.DTO.PatchBookDTO;
+import Pracownia.Projekt.Spring.DTO.PostBookDTO;
+import Pracownia.Projekt.Spring.Entities.Author;
 import Pracownia.Projekt.Spring.Entities.Book;
+import Pracownia.Projekt.Spring.Mapper.BookMapper;
+import Pracownia.Projekt.Spring.Repositories.AuthorRepository;
 import Pracownia.Projekt.Spring.Repositories.BookRepository;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
@@ -19,14 +26,21 @@ public class BookService {
 
     @Autowired
     private BookRepository bookRepository;
+    @Autowired
+    private AuthorRepository authorRepository;
+    @Autowired
+    private BookMapper bookMapper;
 
     public List<Book> listAllBooks() {
         return bookRepository.findAll();
     }
 
-    public Book createBook(Book book) {
+    public Book save(PostBookDTO bookDTO, Integer authorId) {
+        Author author = authorRepository.findById(authorId)
+                .orElseThrow(() -> new EntityNotFoundException("Author with ID " + authorId + " not found"));
+        Book book = bookMapper.PostBookDtoToEntity(bookDTO, author);
         return bookRepository.save(book);
-    }
+    };
     public boolean existsById(Integer id) {
         return bookRepository.existsById(id);
     }
@@ -36,13 +50,6 @@ public class BookService {
     }
 
     public Optional<Book> getBookById(Integer id) {return bookRepository.findById(id);}
-
-    public Book mergeBooks( Book aCurrentBook, Book aNewBook) {
-        return Book.builder()
-                .author(aNewBook.getAuthor() != null ? aNewBook.getAuthor() : aCurrentBook.getAuthor())
-                .title(aNewBook.getTitle() != null ? aNewBook.getTitle() : aCurrentBook.getTitle())
-                .build();
-    }
 
     public Book patchBook(PatchBookDTO newBook, Integer id) {
 
