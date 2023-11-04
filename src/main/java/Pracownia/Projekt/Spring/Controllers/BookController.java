@@ -1,9 +1,12 @@
 package Pracownia.Projekt.Spring.Controllers;
 
+import Pracownia.Projekt.Spring.DTO.BookDto;
 import Pracownia.Projekt.Spring.DTO.PatchBookDTO;
 import Pracownia.Projekt.Spring.DTO.PostBookDTO;
+import Pracownia.Projekt.Spring.Entities.Author;
 import Pracownia.Projekt.Spring.Entities.Book;
 import Pracownia.Projekt.Spring.Mapper.BookMapper;
+import Pracownia.Projekt.Spring.Services.AuthorService;
 import Pracownia.Projekt.Spring.Services.BookService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,23 +20,26 @@ import java.util.Optional;
 
 @RestController
 @Tag(name = "Book")
-@RequestMapping("/api/books")
+@RequestMapping("/api")
 public class BookController {
 
     private final BookService bookService;
+    private final AuthorService authorService;
     private final BookMapper bookMapper;
+
     @Autowired
-    public BookController(BookService bookService, BookMapper bookMapper) {
+    public BookController(BookService bookService, AuthorService authorService, BookMapper bookMapper) {
         this.bookService = bookService;
+        this.authorService = authorService;
         this.bookMapper = bookMapper;
     }
 
-    @GetMapping
+    @GetMapping("/books")
     public List<Book> getAllBooks() {
         return bookService.listAllBooks();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/books/{id}")
     public Optional<Book> getById(@PathVariable Integer id) {
         Optional<Book> book = bookService.getBookById(id);
         if(book.isEmpty()) {
@@ -42,13 +48,13 @@ public class BookController {
         return book;
     }
 
-    @PostMapping
-    public Book createBook(@RequestBody @Valid @NonNull PostBookDTO postBookDTO) {
-        Book book = bookMapper.mapDtoToEntity(postBookDTO);
-        return bookService.createBook(book);
+    @PostMapping("/author/{id}/book")
+    public BookDto createBook(@RequestBody @Valid @NonNull PostBookDTO postBookDTO, @PathVariable Integer id) {
+        Book book = bookService.save(postBookDTO, id);
+        return bookMapper.EntityToDto(book);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/books/{id}")
     public Book patchBook(@RequestBody @Valid PatchBookDTO patchBookDTO, @PathVariable Integer id) {
         if(!bookService.existsById(id)) {
             throw new EntityNotFoundException("Book with ID " + id + " not found");
@@ -56,7 +62,7 @@ public class BookController {
         return bookService.patchBook(patchBookDTO, id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/books/{id}")
     public void deleteBook(@PathVariable Integer id) {
         if (!bookService.existsById(id)) {
             throw new EntityNotFoundException("Book with ID " + id + " not found");

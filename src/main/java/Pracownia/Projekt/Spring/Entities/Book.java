@@ -1,4 +1,6 @@
 package Pracownia.Projekt.Spring.Entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -19,8 +21,10 @@ public class Book {
     private Long id;
     @Column
     private String title;
-    @Column
-    private String author;
+
+    @ManyToOne
+    private Author author;
+
     @Column
     @CreationTimestamp
     private Date createdAt;

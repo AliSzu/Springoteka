@@ -12,7 +12,4 @@ public class PatchBookDTO {
 
     @Size(min = 2, message = "title name should have at least 2 characters")
     private String title;
-
-    @Size(min = 2, message = "author name should have at least 2 characters")
-    private String author;
 }
